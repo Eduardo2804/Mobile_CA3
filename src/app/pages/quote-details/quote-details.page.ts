@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,13 +12,12 @@ export class QuoteDetailsPage implements OnInit {
   quote: any;
   quoteId = null;
 
-
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
-    this.quoteId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.quoteId = this.activatedRoute.snapshot.paramMap.get(`id`);
     this.api.getQuote(this.quoteId).subscribe(res => {
       this.quote = res[0];
     })
-  }
+    }
 }

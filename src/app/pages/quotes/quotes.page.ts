@@ -15,14 +15,14 @@ export class QuotesPage implements OnInit {
   constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
-    this.quotes = this.api.getQuotes();
-    this.quotes.subscribe(data => {
+      this.quotes = this.api.getQuotes();
+      this.quotes.subscribe(data => {
       console.log('my data: ', data);
     });
   }
-  openDetails(quote){
-    let quote_author = quote.quote_author;
-    this.router.navigateByUrl(`/tabs/quotes/${quote_author}`);
-}
 
+  openDetails(quote){
+      let quoteId = quote.quote_id;
+      this.router.navigateByUrl(`/tabs/quotes/${quoteId}`);
+  }
 }

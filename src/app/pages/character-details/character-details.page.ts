@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-character-details',
@@ -10,15 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 export class CharacterDetailsPage implements OnInit {
 
   character: any;
-  characterId  = null;
+  characterId = null;
 
-  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
+  constructor(private  activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
-    this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.api.(this.characterId).subscribe(res => {
+      
+    this.characterId = this.activatedRoute.snapshot.paramMap.get(`id`);
+      this.api.getCharacter(this.characterId).subscribe(res => {
       this.character = res[0];
-  })
-}
+    })
+  }
 
 }
