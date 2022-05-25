@@ -30,11 +30,8 @@ export class ApiService {
     }
 
     getQuotes() {
-        this.http.get(('https://breakingbadapi.com/api/quotes')).subscribe(data => {
-            this.allSearch = data as Array<any>;
-        });
 
-        return this.http.get(`https://www.breakingbadapi.com/api/quotes`)
+        return this.http.get(`https://www.breakingbadapi.com/api/quotes`);
     }
 
     getQuote(id) {
@@ -44,14 +41,10 @@ export class ApiService {
 
     getDeaths() {
 
-        this.http.get(('https://breakingbadapi.com/api/deaths')).subscribe(data => {
-            this.allSearch = data as Array<any>;
-        });
-
-        return this.http.get(`https://www.breakingbadapi.com/api/deaths`)
+        return this.http.get(`https://www.breakingbadapi.com/api/deaths`);
     }
 
     getDeath(id) {
-        return this.http.get(`https://www.breakingbadapi.com/api/deaths/${id}`)
+        return this.http.get(`https://www.breakingbadapi.com/api/deaths/${id}`);
     }
 }

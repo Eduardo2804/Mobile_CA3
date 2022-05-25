@@ -13,7 +13,7 @@ export class DeathsPage implements OnInit {
 
     deaths: Observable<any>;
     deathsId: Observable<any>;
-    input: string = '';
+  
 
     constructor(private router: Router, private api: ApiService) { }
 
